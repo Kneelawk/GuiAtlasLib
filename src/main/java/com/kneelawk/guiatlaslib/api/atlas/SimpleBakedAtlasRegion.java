@@ -20,7 +20,7 @@ public class SimpleBakedAtlasRegion implements BakedAtlasRegion {
     private final float v0;
     private final float v1;
 
-    SimpleBakedAtlasRegion(Identifier textureId, int textureWidth, int textureHeight, int u, int v, int width,
+    public SimpleBakedAtlasRegion(Identifier textureId, int textureWidth, int textureHeight, int u, int v, int width,
                            int height) {
         this.textureId = textureId;
 

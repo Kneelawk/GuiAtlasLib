@@ -9,7 +9,7 @@ public class SimpleBakedAtlas implements BakedAtlas {
     private final Identifier textureId;
     private final Map<String, BakedAtlasRegion> regions;
 
-    SimpleBakedAtlas(Identifier textureId, Map<String, BakedAtlasRegion> regions) {
+    public SimpleBakedAtlas(Identifier textureId, Map<String, BakedAtlasRegion> regions) {
         this.textureId = textureId;
         this.regions = regions;
     }
