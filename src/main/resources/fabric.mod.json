@@ -1,41 +1,32 @@
 {
-	"schemaVersion": 1,
-	"id": "guiatlaslib",
-	"version": "${version}",
-	"name": "GuiAtlasLib",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Me!"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/guiatlaslib/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"com.kneelawk.GuiAtlasLib"
-		],
-		"client": [
-			"com.kneelawk.GuiAtlasLibClient"
-		]
-	},
-	"mixins": [
-		"guiatlaslib.mixins.json",
-		{
-			"config": "guiatlaslib.client.mixins.json",
-			"environment": "client"
-		}
-	],
-	"depends": {
-		"fabricloader": ">=0.15.3",
-		"minecraft": "~1.20.4",
-		"java": ">=17",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "guiatlaslib",
+  "version": "${version}",
+  "name": "GuiAtlasLib",
+  "description": "Make Minecraft GUI rendering easier and more configurable by allowing GUI atlases to be configured through JSON.",
+  "authors": [
+    "Kneelawk"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Kneelawk/GuiAtlasLib",
+    "sources": "https://github.com/Kneelawk/GuiAtlasLib"
+  },
+  "license": "MIT",
+  "icon": "assets/guiatlaslib/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.kneelawk.impl.GuiAtlasLibModClient"
+    ]
+  },
+  "mixins": [ ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.20.4",
+    "java": ">=17",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
 }
