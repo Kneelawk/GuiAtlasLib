@@ -1,4 +1,4 @@
-package com.kneelawk.api;
+package com.kneelawk.guiatlaslib.api;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -10,12 +10,12 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.SimpleRegistry;
 import net.minecraft.util.Identifier;
 
-import com.kneelawk.api.atlas.Atlas;
-import com.kneelawk.api.atlas.AtlasRegion;
-import com.kneelawk.api.atlas.BakedAtlas;
-import com.kneelawk.impl.AtlasResourceManager;
+import com.kneelawk.guiatlaslib.api.atlas.Atlas;
+import com.kneelawk.guiatlaslib.api.atlas.AtlasRegion;
+import com.kneelawk.guiatlaslib.api.atlas.BakedAtlas;
+import com.kneelawk.guiatlaslib.impl.AtlasResourceManager;
 
-import static com.kneelawk.impl.GAConstants.id;
+import static com.kneelawk.guiatlaslib.impl.GAConstants.id;
 
 /**
  * Public static methods and fields for interacting with GuiAtlasLib.

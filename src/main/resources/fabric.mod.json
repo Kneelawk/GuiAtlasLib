@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "com.kneelawk.impl.GuiAtlasLibModClient"
+      "com.kneelawk.guiatlaslib.impl.GuiAtlasLibModClient"
     ]
   },
   "mixins": [ ],

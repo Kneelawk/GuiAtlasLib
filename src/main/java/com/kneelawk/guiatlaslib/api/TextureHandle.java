@@ -1,9 +1,9 @@
-package com.kneelawk.api;
+package com.kneelawk.guiatlaslib.api;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.Identifier;
 
-import com.kneelawk.api.atlas.BakedAtlas;
+import com.kneelawk.guiatlaslib.api.atlas.BakedAtlas;
 
 /**
  * A reference to a given region of a given atlas.

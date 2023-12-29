@@ -1,4 +1,4 @@
-package com.kneelawk.api.atlas;
+package com.kneelawk.guiatlaslib.api.atlas;
 
 import net.minecraft.client.gui.DrawContext;
 

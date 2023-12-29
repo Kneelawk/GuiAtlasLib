@@ -1,9 +1,8 @@
-package com.kneelawk.api.atlas;
+package com.kneelawk.guiatlaslib.api.atlas;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.Identifier;
 
 public record SimpleAtlasRegion(int u, int v, int width, int height) implements AtlasRegion {

@@ -1,4 +1,4 @@
-package com.kneelawk.impl;
+package com.kneelawk.guiatlaslib.impl;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
@@ -7,12 +7,12 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.resource.ResourceType;
 
-import com.kneelawk.api.GuiAtlasLib;
-import com.kneelawk.api.atlas.NinePatchAtlasRegion;
-import com.kneelawk.api.atlas.SimpleAtlas;
-import com.kneelawk.api.atlas.SimpleAtlasRegion;
+import com.kneelawk.guiatlaslib.api.GuiAtlasLib;
+import com.kneelawk.guiatlaslib.api.atlas.NinePatchAtlasRegion;
+import com.kneelawk.guiatlaslib.api.atlas.SimpleAtlas;
+import com.kneelawk.guiatlaslib.api.atlas.SimpleAtlasRegion;
 
-import static com.kneelawk.impl.GAConstants.id;
+import static com.kneelawk.guiatlaslib.impl.GAConstants.id;
 
 public class GuiAtlasLibModClient implements ClientModInitializer {
     @Override

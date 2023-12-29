@@ -1,4 +1,4 @@
-package com.kneelawk.impl;
+package com.kneelawk.guiatlaslib.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

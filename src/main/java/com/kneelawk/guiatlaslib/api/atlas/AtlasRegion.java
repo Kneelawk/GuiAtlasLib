@@ -1,4 +1,4 @@
-package com.kneelawk.api.atlas;
+package com.kneelawk.guiatlaslib.api.atlas;
 
 import java.util.function.Function;
 
@@ -6,7 +6,7 @@ import com.mojang.serialization.Codec;
 
 import net.minecraft.util.Identifier;
 
-import com.kneelawk.api.GuiAtlasLib;
+import com.kneelawk.guiatlaslib.api.GuiAtlasLib;
 
 public interface AtlasRegion {
     Codec<AtlasRegion> DISPATCH_CODEC =

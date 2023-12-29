@@ -1,4 +1,4 @@
-package com.kneelawk.impl;
+package com.kneelawk.guiatlaslib.impl;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

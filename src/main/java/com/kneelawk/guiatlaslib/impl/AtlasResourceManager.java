@@ -1,4 +1,4 @@
-package com.kneelawk.impl;
+package com.kneelawk.guiatlaslib.impl;
 
 import java.io.BufferedReader;
 import java.util.Map;
@@ -19,10 +19,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.profiler.Profiler;
 
-import com.kneelawk.api.atlas.Atlas;
-import com.kneelawk.api.atlas.BakedAtlas;
+import com.kneelawk.guiatlaslib.api.atlas.Atlas;
+import com.kneelawk.guiatlaslib.api.atlas.BakedAtlas;
 
-import static com.kneelawk.impl.GAConstants.id;
+import static com.kneelawk.guiatlaslib.impl.GAConstants.id;
 
 public class AtlasResourceManager implements SimpleResourceReloadListener<Map<Identifier, BakedAtlas>> {
     public static final Identifier ID = id("atlas_resource");
