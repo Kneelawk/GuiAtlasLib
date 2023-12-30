@@ -5,6 +5,14 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.util.Identifier;
 
+/**
+ * Json representation of a simple atlas region that stretches its texture if rendered at a different size.
+ *
+ * @param u      the x position of the region.
+ * @param v      the y position of the region.
+ * @param width  the width of the region.
+ * @param height the height of the region.
+ */
 public record SimpleAtlasRegion(int u, int v, int width, int height) implements AtlasRegion {
     public static final Codec<SimpleAtlasRegion> CODEC = RecordCodecBuilder.create(instance -> instance.group(
         Codec.INT.fieldOf("u").forGetter(SimpleAtlasRegion::u),

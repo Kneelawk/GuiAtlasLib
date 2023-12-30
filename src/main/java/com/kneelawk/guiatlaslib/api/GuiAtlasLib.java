@@ -38,14 +38,11 @@ public class GuiAtlasLib {
 
     /**
      * Gets the atlas for the given texture.
-     * <p>
-     * Note: this assumes that the atlas file has the same path as the texture it is associated with, with only the
-     * extension being different.
      *
-     * @param textureId the id of the texture to find the atlas for.
+     * @param atlasId the id of the atlas to look up.
      * @return the atlas of the given texture.
      */
-    public static @Nullable BakedAtlas getAtlas(Identifier textureId) {
-        return AtlasResourceManager.getAtlas(textureId);
+    public static @Nullable BakedAtlas getAtlas(Identifier atlasId) {
+        return AtlasResourceManager.getAtlas(atlasId);
     }
 }

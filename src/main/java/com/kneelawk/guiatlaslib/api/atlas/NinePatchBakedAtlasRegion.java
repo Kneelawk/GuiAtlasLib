@@ -13,6 +13,9 @@ import net.minecraft.client.render.VertexFormat;
 import net.minecraft.client.render.VertexFormats;
 import net.minecraft.util.Identifier;
 
+/**
+ * A baked Nine-Patch region.
+ */
 public class NinePatchBakedAtlasRegion implements BakedAtlasRegion {
     private final Identifier textureId;
     private final int textureWidth, textureHeight;
@@ -23,6 +26,22 @@ public class NinePatchBakedAtlasRegion implements BakedAtlasRegion {
     private final float pieceU1, pieceV1, pieceU2, pieceV2;
     private final float leftRightU, rightLeftU, topBottomV, bottomTopV;
 
+    /**
+     * Constructs a baked Nine-Patch region.
+     *
+     * @param textureId     the id of the texture this region is rendering.
+     * @param textureWidth  the width of the whole atlas texture.
+     * @param textureHeight the height of the whole atlas texture.
+     * @param u             the x position of this region.
+     * @param v             the y position of this region.
+     * @param width         the width of this region.
+     * @param height        the height of this region.
+     * @param leftWidth     the width of the left segment of this region.
+     * @param rightWidth    the width of the right segment of this region.
+     * @param topHeight     the height of the top of this region.
+     * @param bottomHeight  the height of the bottom of this region.
+     * @param tiling        whether the center parts should be tiled or stretched.
+     */
     public NinePatchBakedAtlasRegion(Identifier textureId, int textureWidth, int textureHeight, int u, int v, int width,
                                      int height, int leftWidth, int rightWidth, int topHeight, int bottomHeight,
                                      boolean tiling) {
@@ -40,10 +59,10 @@ public class NinePatchBakedAtlasRegion implements BakedAtlasRegion {
         tileHeight = height - topHeight - bottomHeight;
 
         if (tileWidth < 1) {
-            throw new IllegalArgumentException("leftWidth + rightWidth must be less than pieceWidth");
+            throw new IllegalArgumentException("leftWidth + rightWidth must be less than the region width");
         }
         if (tileHeight < 1) {
-            throw new IllegalArgumentException("topHeight + bottomHeight must be less than pieceHeight");
+            throw new IllegalArgumentException("topHeight + bottomHeight must be less than the region height");
         }
 
         leftRight = u + leftWidth;
@@ -147,6 +166,8 @@ public class NinePatchBakedAtlasRegion implements BakedAtlasRegion {
 
     private static void rect(VertexConsumer consumer, Matrix4f mat, int z, int x0, int y0, int w, int h, float u0,
                              float v0, float u1, float v1) {
+        if (w == 0 || h == 0) return;
+
         int x1 = x0 + w;
         int y1 = y0 + h;
         consumer.vertex(mat, x0, y1, z).texture(u0, v1).next();

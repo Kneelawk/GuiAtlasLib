@@ -5,8 +5,24 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.util.Identifier;
 
+/**
+ * Json representation of a Nine-Patch atlas region.
+ *
+ * @param u            the x coordinate of the region.
+ * @param v            the y coordinate of the region.
+ * @param width        the width of the region.
+ * @param height       the height of the region.
+ * @param leftWidth    the width of the region's left segment.
+ * @param rightWidth   the width of the region's right segment.
+ * @param topHeight    the height of the region's top segment.
+ * @param bottomHeight the height of the region's bottom segment.
+ * @param tiling       whether the center parts of the nine-patch texture should be tiled or stretched.
+ */
 public record NinePatchAtlasRegion(int u, int v, int width, int height, int leftWidth, int rightWidth, int topHeight,
                                    int bottomHeight, boolean tiling) implements AtlasRegion {
+    /**
+     * The codec for this type of atlas region.
+     */
     public static final Codec<NinePatchAtlasRegion> CODEC = RecordCodecBuilder.create(instance -> instance.group(
         Codec.INT.fieldOf("u").forGetter(NinePatchAtlasRegion::u),
         Codec.INT.fieldOf("v").forGetter(NinePatchAtlasRegion::v),

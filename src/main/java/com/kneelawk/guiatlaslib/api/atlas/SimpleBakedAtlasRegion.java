@@ -12,6 +12,9 @@ import net.minecraft.client.render.VertexFormat;
 import net.minecraft.client.render.VertexFormats;
 import net.minecraft.util.Identifier;
 
+/**
+ * A simple baked atlas region that stretches its texture if rendered at a different size.
+ */
 public class SimpleBakedAtlasRegion implements BakedAtlasRegion {
     private final Identifier textureId;
 
@@ -20,8 +23,19 @@ public class SimpleBakedAtlasRegion implements BakedAtlasRegion {
     private final float v0;
     private final float v1;
 
+    /**
+     * Constructs a simple baked atlas region.
+     *
+     * @param textureId     the texture this region will render from.
+     * @param textureWidth  the width of the overall atlas texture.
+     * @param textureHeight the height of the overall atlas texture.
+     * @param u             the x position of this region.
+     * @param v             the y position of this region.
+     * @param width         the width of this region.
+     * @param height        the height of this region.
+     */
     public SimpleBakedAtlasRegion(Identifier textureId, int textureWidth, int textureHeight, int u, int v, int width,
-                           int height) {
+                                  int height) {
         this.textureId = textureId;
 
         this.u0 = (float) u / (float) textureWidth;

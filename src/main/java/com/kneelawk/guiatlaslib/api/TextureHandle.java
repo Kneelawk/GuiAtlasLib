@@ -9,17 +9,17 @@ import com.kneelawk.guiatlaslib.api.atlas.BakedAtlas;
  * A reference to a given region of a given atlas.
  */
 public class TextureHandle {
-    private final Identifier textureId;
+    private final Identifier atlasId;
     private final String region;
 
     /**
      * Constructs a texture handle with the given atlas and given atlas region.
      *
-     * @param textureId the atlas to look in.
-     * @param region    the name of the region in the atlas.
+     * @param atlasId the atlas to look in.
+     * @param region  the name of the region in the atlas.
      */
-    public TextureHandle(Identifier textureId, String region) {
-        this.textureId = textureId;
+    public TextureHandle(Identifier atlasId, String region) {
+        this.atlasId = atlasId;
         this.region = region;
     }
 
@@ -33,8 +33,8 @@ public class TextureHandle {
      * @param height the height of the area to render the texture over.
      */
     public void render(DrawContext ctx, int x, int y, int width, int height) {
-        BakedAtlas atlas = GuiAtlasLib.getAtlas(textureId);
-        if (atlas == null) throw new IllegalStateException("Attempting to render missing atlas: " + textureId);
+        BakedAtlas atlas = GuiAtlasLib.getAtlas(atlasId);
+        if (atlas == null) throw new IllegalStateException("Attempting to render missing atlas: " + atlasId);
         atlas.render(ctx, region, x, y, width, height);
     }
 }
