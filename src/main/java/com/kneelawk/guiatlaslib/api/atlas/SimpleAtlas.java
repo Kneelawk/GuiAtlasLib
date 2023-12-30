@@ -20,6 +20,9 @@ import net.minecraft.util.Identifier;
  */
 public record SimpleAtlas(Optional<Identifier> textureId, int width, int height, Map<String, AtlasRegion> regions)
     implements Atlas {
+    /**
+     * The codec for this type of atlas.
+     */
     public static final Codec<SimpleAtlas> CODEC = RecordCodecBuilder.create(instance -> instance.group(
         Identifier.CODEC.optionalFieldOf("textureId").forGetter(SimpleAtlas::textureId),
         Codec.INT.optionalFieldOf("width", 256).forGetter(SimpleAtlas::width),

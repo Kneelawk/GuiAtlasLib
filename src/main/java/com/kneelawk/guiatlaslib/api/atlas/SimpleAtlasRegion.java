@@ -14,6 +14,9 @@ import net.minecraft.util.Identifier;
  * @param height the height of the region.
  */
 public record SimpleAtlasRegion(int u, int v, int width, int height) implements AtlasRegion {
+    /**
+     * The codec for this type of atlas region.
+     */
     public static final Codec<SimpleAtlasRegion> CODEC = RecordCodecBuilder.create(instance -> instance.group(
         Codec.INT.fieldOf("u").forGetter(SimpleAtlasRegion::u),
         Codec.INT.fieldOf("v").forGetter(SimpleAtlasRegion::v),
