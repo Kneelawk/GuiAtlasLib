@@ -45,10 +45,10 @@ public class SimpleBakedAtlasRegion implements BakedAtlasRegion {
     }
 
     @Override
-    public void render(DrawContext ctx, int x, int y, int width, int height) {
+    public void render(DrawContext ctx, float x, float y, float width, float height) {
         Matrix4f mat = ctx.getMatrices().peek().getPositionMatrix();
-        int x1 = x + width;
-        int y1 = y + height;
+        float x1 = x + width;
+        float y1 = y + height;
 
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);

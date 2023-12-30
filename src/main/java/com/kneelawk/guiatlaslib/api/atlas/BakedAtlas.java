@@ -16,5 +16,5 @@ public interface BakedAtlas {
      * @param width  the width to render the region at.
      * @param height the height to render the region at.
      */
-    void render(DrawContext ctx, String region, int x, int y, int width, int height);
+    void render(DrawContext ctx, String region, float x, float y, float width, float height);
 }

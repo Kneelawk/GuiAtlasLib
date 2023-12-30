@@ -79,7 +79,7 @@ public class NinePatchBakedAtlasRegion implements BakedAtlasRegion {
     }
 
     @Override
-    public void render(DrawContext ctx, int x, int y, int width, int height) {
+    public void render(DrawContext ctx, float x, float y, float width, float height) {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
         RenderSystem.setShaderTexture(0, textureId);
@@ -91,11 +91,11 @@ public class NinePatchBakedAtlasRegion implements BakedAtlasRegion {
         tess.draw();
     }
 
-    private void render(VertexConsumer consumer, Matrix4f mat, int z, int x, int y, int w, int h) {
-        int centerWidth = w - leftWidth - rightWidth;
-        int centerHeight = h - topHeight - bottomHeight;
-        int rightLeft = x + w - rightWidth;
-        int bottomTop = y + h - bottomHeight;
+    private void render(VertexConsumer consumer, Matrix4f mat, float z, float x, float y, float w, float h) {
+        float centerWidth = w - leftWidth - rightWidth;
+        float centerHeight = h - topHeight - bottomHeight;
+        float rightLeft = x + w - rightWidth;
+        float bottomTop = y + h - bottomHeight;
 
         // draw 4 corners
         rect(consumer, mat, z, x, y, leftWidth, topHeight, pieceU1, pieceV1, leftRightU, topBottomV);
@@ -105,14 +105,14 @@ public class NinePatchBakedAtlasRegion implements BakedAtlasRegion {
             pieceV2);
 
         if (tiling) {
-            int tilesX = (centerWidth + tileWidth - 1) / tileWidth;
-            int tilesY = (centerHeight + tileHeight - 1) / tileHeight;
+            int tilesX = (int) Math.ceil(centerWidth / (float) tileWidth);
+            int tilesY = (int) Math.ceil(centerHeight / (float) tileHeight);
 
             // draw top and bottom edge tiles
             for (int tileXIndex = 0; tileXIndex < tilesX; tileXIndex++) {
                 int localTileX = tileXIndex * tileWidth;
-                int curTileWidth = Math.min(tileWidth, centerWidth - localTileX);
-                float curTileU2 = (float) (leftRight + curTileWidth) / (float) textureWidth;
+                float curTileWidth = Math.min(tileWidth, centerWidth - localTileX);
+                float curTileU2 = (leftRight + curTileWidth) / (float) textureWidth;
                 rect(consumer, mat, z, leftWidth + localTileX + x, y, curTileWidth, topHeight, leftRightU, pieceV1,
                     curTileU2, topBottomV);
                 rect(consumer, mat, z, leftWidth + localTileX + x, bottomTop, curTileWidth, bottomHeight, leftRightU,
@@ -121,8 +121,8 @@ public class NinePatchBakedAtlasRegion implements BakedAtlasRegion {
 
             for (int tileYIndex = 0; tileYIndex < tilesY; tileYIndex++) {
                 int localTileY = tileYIndex * tileHeight;
-                int curTileHeight = Math.min(tileHeight, centerHeight - localTileY);
-                float curTileV2 = (float) (topBottom + curTileHeight) / (float) textureHeight;
+                float curTileHeight = Math.min(tileHeight, centerHeight - localTileY);
+                float curTileV2 = (topBottom + curTileHeight) / (float) textureHeight;
 
                 // draw left and right edge tiles
                 rect(consumer, mat, z, x, topHeight + localTileY + y, leftWidth, curTileHeight, pieceU1, topBottomV,
@@ -133,22 +133,22 @@ public class NinePatchBakedAtlasRegion implements BakedAtlasRegion {
                 // draw center tiles
                 for (int tileXIndex = 0; tileXIndex < tilesX; tileXIndex++) {
                     int localTileX = tileXIndex * tileWidth;
-                    int curTileWidth = Math.min(tileWidth, centerWidth - localTileX);
-                    float curTileU2 = (float) (leftRight + curTileWidth) / (float) textureWidth;
+                    float curTileWidth = Math.min(tileWidth, centerWidth - localTileX);
+                    float curTileU2 = (leftRight + curTileWidth) / (float) textureWidth;
                     rect(consumer, mat, z, leftWidth + localTileX + x, topHeight + localTileY + y, curTileWidth,
                         curTileHeight, leftRightU, topBottomV, curTileU2, curTileV2);
                 }
             }
         } else {
             // draw top and bottom edges
-            if (centerWidth > 0) {
+            if (centerWidth > 0f) {
                 rect(consumer, mat, z, leftWidth + x, y, centerWidth, topHeight, leftRightU, pieceV1, rightLeftU,
                     topBottomV);
                 rect(consumer, mat, z, leftWidth + x, bottomTop, centerWidth, bottomHeight, leftRightU, bottomTopV,
                     rightLeftU, pieceV2);
             }
 
-            if (centerHeight > 0) {
+            if (centerHeight > 0f) {
                 // draw left and right edges
                 rect(consumer, mat, z, x, topHeight + y, leftWidth, centerHeight, pieceU1, topBottomV, leftRightU,
                     bottomTopV);
@@ -156,7 +156,7 @@ public class NinePatchBakedAtlasRegion implements BakedAtlasRegion {
                     pieceU2, bottomTopV);
 
                 // draw center
-                if (centerWidth > 0) {
+                if (centerWidth > 0f) {
                     rect(consumer, mat, z, leftWidth + x, topHeight + y, centerWidth, centerHeight, leftRightU,
                         topBottomV, rightLeftU, bottomTopV);
                 }
@@ -164,12 +164,12 @@ public class NinePatchBakedAtlasRegion implements BakedAtlasRegion {
         }
     }
 
-    private static void rect(VertexConsumer consumer, Matrix4f mat, int z, int x0, int y0, int w, int h, float u0,
+    private static void rect(VertexConsumer consumer, Matrix4f mat, float z, float x0, float y0, float w, float h, float u0,
                              float v0, float u1, float v1) {
         if (w == 0 || h == 0) return;
 
-        int x1 = x0 + w;
-        int y1 = y0 + h;
+        float x1 = x0 + w;
+        float y1 = y0 + h;
         consumer.vertex(mat, x0, y1, z).texture(u0, v1).next();
         consumer.vertex(mat, x1, y1, z).texture(u1, v1).next();
         consumer.vertex(mat, x1, y0, z).texture(u1, v0).next();

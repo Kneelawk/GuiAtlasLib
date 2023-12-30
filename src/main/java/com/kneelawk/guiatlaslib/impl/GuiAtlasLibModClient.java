@@ -9,6 +9,7 @@ import net.minecraft.resource.ResourceType;
 
 import com.kneelawk.guiatlaslib.api.GuiAtlasLib;
 import com.kneelawk.guiatlaslib.api.atlas.NinePatchAtlasRegion;
+import com.kneelawk.guiatlaslib.api.atlas.PartialAtlasRegion;
 import com.kneelawk.guiatlaslib.api.atlas.SimpleAtlas;
 import com.kneelawk.guiatlaslib.api.atlas.SimpleAtlasRegion;
 
@@ -29,7 +30,8 @@ public class GuiAtlasLibModClient implements ClientModInitializer {
 
         Registry.register(GuiAtlasLib.ATLAS, id("simple"), SimpleAtlas.CODEC);
         Registry.register(GuiAtlasLib.ATLAS_REGION, id("simple"), SimpleAtlasRegion.CODEC);
-        Registry.register(GuiAtlasLib.ATLAS_REGION, id("ninepatch"), NinePatchAtlasRegion.CODEC);
+        Registry.register(GuiAtlasLib.ATLAS_REGION, id("ninePatch"), NinePatchAtlasRegion.CODEC);
+        Registry.register(GuiAtlasLib.ATLAS_REGION, id("partial"), PartialAtlasRegion.CODEC);
 
         GALog.LOG.info("GuiAtlasLib Initialized.");
     }

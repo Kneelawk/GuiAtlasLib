@@ -32,7 +32,7 @@ public class TextureHandle {
      * @param width  the width of the area to render the texture over.
      * @param height the height of the area to render the texture over.
      */
-    public void render(DrawContext ctx, int x, int y, int width, int height) {
+    public void render(DrawContext ctx, float x, float y, float width, float height) {
         BakedAtlas atlas = GuiAtlasLib.getAtlas(atlasId);
         if (atlas == null) throw new IllegalStateException("Attempting to render missing atlas: " + atlasId);
         atlas.render(ctx, region, x, y, width, height);
