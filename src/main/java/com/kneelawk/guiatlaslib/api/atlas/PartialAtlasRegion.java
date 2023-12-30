@@ -43,6 +43,7 @@ public record PartialAtlasRegion(int u, int v, int width, int height, Optional<I
 
     @Override
     public BakedAtlasRegion bake(Identifier textureId, int textureWidth, int textureHeight) {
-        return null;
+        return new PartialBakedAtlasRegion(textureId, textureWidth, textureHeight, u, v, width, height,
+            renderWidth.orElse(width), renderHeight.orElse(height), justification);
     }
 }
