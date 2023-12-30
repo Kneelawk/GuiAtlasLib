@@ -63,6 +63,7 @@ public class PartialBakedAtlasRegion implements BakedAtlasRegion {
         BufferBuilder bufferBuilder = tess.getBuffer();
         bufferBuilder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
         renderStrips(ctx.getMatrices().peek().getPositionMatrix(), bufferBuilder, x, y, width, height);
+        tess.draw();
     }
 
     private void renderStrips(Matrix4f mat, VertexConsumer consumer, float x0, float y0, float width, float height) {
