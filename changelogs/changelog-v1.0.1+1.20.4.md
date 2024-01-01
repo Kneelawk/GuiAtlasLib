@@ -1,0 +1,3 @@
+Changes:
+
+* Fixed maven publishing.
