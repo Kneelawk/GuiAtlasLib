@@ -30,7 +30,7 @@ public class GuiAtlasLibModClient implements ClientModInitializer {
 
         Registry.register(GuiAtlasLib.ATLAS, id("simple"), SimpleAtlas.CODEC);
         Registry.register(GuiAtlasLib.ATLAS_REGION, id("simple"), SimpleAtlasRegion.CODEC);
-        Registry.register(GuiAtlasLib.ATLAS_REGION, id("ninePatch"), NinePatchAtlasRegion.CODEC);
+        Registry.register(GuiAtlasLib.ATLAS_REGION, id("nine_patch"), NinePatchAtlasRegion.CODEC);
         Registry.register(GuiAtlasLib.ATLAS_REGION, id("partial"), PartialAtlasRegion.CODEC);
 
         GALog.LOG.info("GuiAtlasLib Initialized.");

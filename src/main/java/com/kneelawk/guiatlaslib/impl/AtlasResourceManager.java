@@ -49,7 +49,7 @@ public class AtlasResourceManager implements SimpleResourceReloadListener<Map<Id
         return CompletableFuture.supplyAsync(() -> {
             Map<Identifier, BakedAtlas> atlasMap = new Object2ObjectLinkedOpenHashMap<>();
 
-            Map<Identifier, Resource> resources = manager.findResources("textures/", id -> {
+            Map<Identifier, Resource> resources = manager.findResources("textures", id -> {
                 String path = id.getPath();
                 return path.endsWith(".atlas.json") || path.endsWith(".json.atlas");
             });
